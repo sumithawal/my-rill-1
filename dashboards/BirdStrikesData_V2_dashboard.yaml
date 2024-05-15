@@ -1,0 +1,144 @@
+# Dashboard YAML
+# Reference documentation: https://docs.rilldata.com/reference/project-files/dashboards
+# This file was generated using AI.
+
+type: metrics_view
+title: Metrics for Bird Strikes Data Analysis
+table: BirdStrikesData_V2
+dimensions:
+  - label: Aircraft
+    column: aircraft
+    description: ""
+  - label: Airport
+    column: airport
+    description: ""
+  - label: Model
+    column: model
+    description: ""
+  - label: Impact
+    column: impact
+    description: ""
+  - label: Flight Date
+    column: flight_date
+    description: ""
+  - label: Damage
+    column: damage
+    description: ""
+  - label: Airline
+    column: airline
+    description: ""
+  - label: Origin
+    column: origin
+    description: ""
+  - label: Flight Phase
+    column: flight_phase
+    description: ""
+  - label: Remains Collected Flag
+    column: remains_collected_flag
+    description: ""
+  - label: Remarks
+    column: Remarks
+    description: ""
+  - label: Wildlife Size
+    column: wildlife_size
+    description: ""
+  - label: Sky Conditions
+    column: sky_conditions
+    description: ""
+  - label: Species
+    column: species
+    description: ""
+  - label: Pilot Warned Flag
+    column: pilot_warned_flag
+    description: ""
+  - label: Altitude Ft
+    column: altitude_ft
+    description: ""
+  - label: Heavy Flag
+    column: heavy_flag
+    description: ""
+measures:
+  - name: average_wildlife_struck
+    label: Average Wildlife Struck
+    expression: AVG(wildlife_struck)
+    description: Average number of wildlife struck per incident
+    format_preset: humanize
+    valid_percent_of_total: false
+  - name: total_strikes
+    label: Total Strikes
+    expression: COUNT(*)
+    description: Total number of bird strike incidents
+    format_preset: humanize
+    valid_percent_of_total: false
+  - name: max_altitude
+    label: Maximum Altitude
+    expression: MAX(altitude_ft)
+    description: Maximum altitude at which bird strikes occurred
+    format_preset: humanize
+    valid_percent_of_total: false
+  - name: total_incidents_per_airline
+    label: Total Incidents per Airline
+    expression: COUNT(DISTINCT rid)
+    description: Total number of bird strike incidents per airline
+    format_preset: humanize
+    valid_percent_of_total: false
+  - name: total_incidents_per_airport
+    label: Total Incidents per Airport
+    expression: COUNT(DISTINCT rid)
+    description: Total number of bird strike incidents per airport
+    format_preset: humanize
+    valid_percent_of_total: false
+  - name: total_incidents_per_model
+    label: Total Incidents per Aircraft Model
+    expression: COUNT(DISTINCT rid)
+    description: Total number of bird strike incidents per aircraft model
+    format_preset: humanize
+    valid_percent_of_total: false
+  - name: average_incidents_per_day
+    label: Average Incidents per Day
+    expression: COUNT(*) / COUNT(DISTINCT flight_date)
+    description: Average number of bird strike incidents per day
+    format_preset: humanize
+    valid_percent_of_total: false
+  - name: total_incidents_with_damage
+    label: Total Incidents with Damage
+    expression: COUNT(DISTINCT rid)
+    description: Total number of bird strike incidents that resulted in damage
+    format_preset: humanize
+    valid_percent_of_total: false
+  - name: max_wildlife_struck
+    label: Maximum Wildlife Struck
+    expression: MAX(wildlife_struck)
+    description: Maximum number of wildlife struck in a single incident
+    format_preset: humanize
+    valid_percent_of_total: false
+available_time_zones:
+  - America/Los_Angeles
+  - America/Chicago
+  - America/New_York
+  - Europe/London
+  - Europe/Paris
+  - Asia/Jerusalem
+  - Europe/Moscow
+  - Asia/Kolkata
+  - Asia/Shanghai
+  - Asia/Tokyo
+  - Australia/Sydney
+available_time_ranges:
+  - PT6H
+  - PT24H
+  - P7D
+  - P14D
+  - P4W
+  - P3M
+  - P12M
+  - rill-TD
+  - rill-WTD
+  - rill-MTD
+  - rill-QTD
+  - rill-YTD
+  - rill-PDC
+  - rill-PWC
+  - rill-PMC
+  - rill-PQC
+  - rill-PYC
